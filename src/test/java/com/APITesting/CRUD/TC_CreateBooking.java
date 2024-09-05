@@ -56,10 +56,9 @@ public class TC_CreateBooking extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("TC_POST_CREATEBOOKING-002 - Request is empty - CreateBooking should not post and booking ID is not generated")
     public void CreateBooking_500() throws JsonProcessingException {
-        String req = "";
 
         super.requestSpecification.basePath(base_PATH_CreateBooking);
-        super.requestSpecification.body("").log().all();;
+        super.requestSpecification.body("").log().all();
         response = super.requestSpecification.when().post();
 
         String responseAsString = response.asString();
@@ -70,10 +69,6 @@ public class TC_CreateBooking extends BaseTest {
     }
 
 
-
-    public void CreateBooking_validateJsonSchema(){
-
-    }
 
 
 }

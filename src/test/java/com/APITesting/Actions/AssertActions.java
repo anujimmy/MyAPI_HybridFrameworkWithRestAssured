@@ -3,7 +3,7 @@ package com.APITesting.Actions;
 import io.restassured.response.Response;
 
 import static org.testng.Assert.*;
-import static org.assertj.core.api.Assertions.*;
+
 
 public class AssertActions {
 
@@ -32,20 +32,6 @@ public class AssertActions {
     public void verifyResponseBody(int act, int exp, String desc){
         assertEquals(act,exp,desc);
     }
-    public void verifyNotNull(String val,String desc){
-        assertNotNull(val,desc);
-    }
-    public void verifyNotNull(Integer val,String desc){
-        assertNotNull(val,desc);
-    }
-    public void verifyNotNull(int val,String desc){
-        assertNotNull(val,desc);
-    }
-    public void verifyNotNull(float val,String desc){
-        assertNotNull(val,desc);
-    }
-    public void verifyNotNull(double val,String desc){
-        assertNotNull(val,desc);
-    }
+
 
 }

@@ -2,7 +2,7 @@ package com.APITesting.Payloads.Requests;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +22,7 @@ public class Bookingdates {
     private String checkin;
     @JsonProperty("checkout")
     private String checkout;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
+
 
     @JsonProperty("checkin")
     public String getCheckin() {
@@ -43,16 +42,6 @@ public class Bookingdates {
     @JsonProperty("checkout")
     public void setCheckout(String checkout) {
         this.checkout = checkout;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }
