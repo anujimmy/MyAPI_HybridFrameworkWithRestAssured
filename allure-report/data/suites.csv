@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2332","mytest","Surefire suite","Thu Sep 05 13:27:14 CEST 2024","passed","Thu Sep 05 13:27:17 CEST 2024","com.APITesting.MISC.TestFile","Surefire test","com.APITesting.MISC.TestFile","mytest"
+"","2517","mytest","All Test Suite","Thu Sep 05 10:30:01 CEST 2024","passed","Thu Sep 05 10:30:03 CEST 2024","com.APITesting.MISC.MyTest","C:/Users/Admin/IdeaProjects/MyAPI_HybridFrameworkWithRestAssured","com.APITesting.MISC.MyTest","mytest"
