@@ -1,4 +1,4 @@
-package com.APITesting.Payloads;
+package com.APITesting.Payloads.Requests;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

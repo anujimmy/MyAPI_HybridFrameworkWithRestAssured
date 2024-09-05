@@ -3,10 +3,10 @@
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="MyAPI_HybridFrameworkWithRestAssured">
         <classes>
-            <class name="com.APITesting.MISC.TestFile">
-                <methods>
-                    <include name="mytest"/>
-                </methods>
+            <class name="com.APITesting.CRUD.TC_CreateBooking">
+                <!--methods>
+                    <include name="CreateBooking_noContentType_500"/>
+                </methods-->
             </class>
         </classes>
     </test>
