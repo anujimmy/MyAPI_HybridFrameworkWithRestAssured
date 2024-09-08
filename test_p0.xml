@@ -3,11 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="MyAPI_HybridFrameworkWithRestAssured">
         <classes>
-            <class name="com.APITesting.TestSuite.CRUD.TestCase_CreateBooking">
-                <!--methods>
-                    <include name="mytest"/>
-                </methods-->
-            </class>
+            <class name="com.APITesting.TestSuite.CRUD.TestCase_CreateBooking"></class>
         </classes>
         <groups>
             <run>

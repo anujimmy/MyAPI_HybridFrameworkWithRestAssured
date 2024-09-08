@@ -3,8 +3,7 @@ package com.APITesting.Utils;
 import java.io.File;
 import java.io.FileInputStream;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 import java.util.Properties;
 
 public class PropertyReaderUtil {

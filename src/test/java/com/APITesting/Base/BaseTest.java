@@ -6,9 +6,7 @@ import com.APITesting.Constants.APIContentType;
 
 import com.APITesting.Modules.PayloadManager;
 import com.APITesting.Modules.ResponseManager;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;

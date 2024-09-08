@@ -4,11 +4,6 @@ import com.codoid.products.exception.FilloException;
 import com.codoid.products.fillo.Connection;
 import com.codoid.products.fillo.Fillo;
 import com.codoid.products.fillo.Recordset;
-import org.testng.Reporter;
-import org.testng.annotations.DataProvider;
-
-import java.io.File;
-import java.io.IOException;
 
 public class FillowUtil {
     public static String file_path;
