@@ -2,9 +2,15 @@ package com.APITesting.Modules;
 
 import com.APITesting.Payloads.Requests.Booking;
 import com.APITesting.Payloads.Requests.Bookingdates;
+import com.APITesting.Payloads.Requests.TokenAuth;
 import com.APITesting.Utils.FakerUtil;
+import com.APITesting.Utils.PropertyReaderUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.text.SimpleDateFormat;
+
+import static com.APITesting.Utils.PropertyReaderUtil.readKey;
 
 public class PayloadManager {
 
@@ -24,7 +30,6 @@ public class PayloadManager {
 
     public String createPayload_CreateRequest() throws JsonProcessingException {
         objectMapper = new ObjectMapper();
-
         Bookingdates oBookingDate = new Bookingdates();
             oBookingDate.setCheckin("2013-02-23");
             oBookingDate.setCheckout("2014-10-23");
@@ -40,6 +45,20 @@ public class PayloadManager {
 
         return jsonStr;
     }
+
+    public String createPayload_getToken() throws Exception {
+        objectMapper = new ObjectMapper();
+        PropertyReaderUtil p = new PropertyReaderUtil();
+
+
+        TokenAuth oToken = new TokenAuth();
+            oToken.setUsername(readKey("auth_username"));
+            oToken.setPassword(readKey("auth_password"));
+
+        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(oToken);
+
+    }
+
 
 
 }

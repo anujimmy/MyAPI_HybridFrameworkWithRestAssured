@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="MyAPI_HybridFrameworkWithRestAssured">
         <classes>
-            <class name="com.APITesting.CRUD.TC_CreateBooking">
+            <class name="com.APITesting.E2E_Testing.TC_E2EAPITest">
                 <!--methods>
                     <include name="CreateBooking_noContentType_500"/>
                 </methods-->

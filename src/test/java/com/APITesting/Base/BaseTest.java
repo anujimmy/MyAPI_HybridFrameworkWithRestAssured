@@ -1,56 +1,72 @@
 package com.APITesting.Base;
 
 
+import com.APITesting.Actions.AssertActions;
 import com.APITesting.Constants.APIContentType;
 
+import com.APITesting.Modules.PayloadManager;
 import com.APITesting.Modules.ResponseManager;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
-import static com.APITesting.Constants.EndPoints.base_URL;
-import static io.restassured.RestAssured.reset;
+import static com.APITesting.Constants.EndPoints.*;
+import static io.restassured.RestAssured.*;
 
 public class BaseTest {
 
-    public RequestSpecification requestSpecification;
-    public RequestSpecBuilder requestSpecBuilder;
-    public Response response;
-    public ValidatableResponse validatableResponse;
-    public JsonPath jsonPath;
+    public static RequestSpecification requestSpecification = RestAssured.given();
+//    public static RequestSpecBuilder requestSpecBuilder;
+    public static Response response;
+    public static ValidatableResponse validatableResponse;
+    public static JsonPath jsonPath;
+    public static AssertActions actions;
+    public static ResponseManager responseManager ;
+    public static PayloadManager payloadManager;
 
-    public ResponseManager responseManager;
+
     @BeforeSuite
-    public void API_VerifyHealthCheck(){
-
-        RestAssured.given().baseUri(base_URL).basePath("/ping")
+    public void verifyHealthCheck(){
+        RestAssured.given().baseUri(base_URL).basePath(base_PATH_HealthCheck)
                 .when().get()
-                .then().assertThat().statusCode(201);
+                .then().log().all().statusCode(201);
 
     }
 
-    @BeforeTest
-    public void setUp(){
-        reset();
-        requestSpecification = RestAssured.given();
+
+    @BeforeMethod(alwaysRun = true)
+    public void setConfig(){
             requestSpecification.baseUri(base_URL);
             requestSpecification.contentType(APIContentType.GSON.getContentType());
-
-
         /*RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
             requestSpecBuilder.setBaseUri(base_URL);
             requestSpecBuilder.setContentType(APIContentType.GSON.getContentType());*/
 
     }
 
-    @AfterTest
-    public void resetRestAssured(){
-        reset();
+
+    public String getToken() throws Exception {
+        String req = new PayloadManager().createPayload_getToken();
+        requestSpecification.basePath(base_PATH_GetToken);
+        requestSpecification.body(req);
+
+        response = requestSpecification.when().post();
+        validatableResponse = response.then().log().all();
+        String responseAsString = response.asString();
+        enableLoggingOfRequestAndResponseIfValidationFails();
+        jsonPath = new JsonPath(responseAsString);
+
+        String tokenID = jsonPath.getString("token");
+
+        return tokenID;
+
     }
+
+
+
 }
