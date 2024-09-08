@@ -2,6 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="MyAPI_HybridFrameworkWithRestAssured">
+        <groups>
+            <run>
+                <include name="preprod"/>
+            </run>
+        </groups>
         <classes>
             <class name="com.APITesting.MISC.TestFile">
                 <!--methods>
@@ -9,10 +14,5 @@
                 </methods-->
             </class>
         </classes>
-        <groups>
-            <run>
-                <include name="preprod"/>
-            </run>
-        </groups>
     </test>
 </suite>

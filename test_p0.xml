@@ -2,17 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="MyAPI_HybridFrameworkWithRestAssured">
-        <classes>
-            <class name="com.APITesting.TestSuite.CRUD.TestCase_CreateBooking"></class>
-        </classes>
         <groups>
             <run>
                 <include name="P0"/>
-                <include name="TC_POST_CREATEBOOKING.*"/>
                 <exclude name="P4"></exclude>
                 <exclude name="P3"></exclude>
                 <exclude name="P2"></exclude>
             </run>
         </groups>
+        <classes>
+            <class name="com.APITesting.TestSuite.CRUD.TestCase_CreateBooking"></class>
+        </classes>
     </test>
 </suite>
